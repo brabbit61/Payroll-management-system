@@ -1,0 +1,31 @@
+﻿Deep Neural Network:
+
+    • The required packages are imported.
+    • The dataset consists of 3 columns, from which the 1st 2 columns (the poems and the period in which the poem was written) are concatenated and act as the input.
+    • The last column consists of the the poem label. Any poem can be classified into 3 categories: Love, Mythology & Folklore and Nature.
+    • The input is split into 3 parts namely used for training, validation and testing.
+    • Using a tokenizer from the keras library, the input is converted to a matrix.
+    • LabelEncoder is used to convert the 2nd column of the input, which consists of the period during which the poem was written, to either a 1 or a 0.
+    • Then the output of the LabelEncoder and the converted text are concatenated that also act as the processed input.
+    • OneHotEncoder is used to convert the string that acts as the label to a one-hot vector. It returns an array of length equal to the number of classes of poems.
+    • Then the architecture of the model that will be used for training is initialized.
+    • Empty lists are initialized to keep a track of the training loss, training accuracy, testing loss, testing accuracy and the corresponding iteration.
+    • Then the model is trained with varying hyperparameters and the intermediate models are saved in a h5 file format.
+    • Trained on Google Colab.
+
+Naive Bayes:
+
+    • The required packages are imported.
+    • The dataset is imported.
+    • The vocabulary of the dataset is built from scratch by creating an empty set and then populating it with new words encountered while parsing all the poems.
+    • The poems from both the sets (training and testing set) are converted to their corresponding vector representations by the function setofWordsToVec.
+    • The function setofWordsToVec takes a poem and the period of it’s release as the input. 
+    • The function segragates each word occuring in the poem and then converts it to a vector of numbers.
+    • The length of the vector is the same as the length of the vocabulary. 
+    • The value of an element in the vector represents the total number of occurences of the corresponding word in the vocabulary in the poem.
+    • It also converts the period of it’s release to a one-hot vector and concatenates it at the end of the word vector and then returns the new vector as the final vector representation of a poem.
+    • Then the probability of occurence of the a class is found out using the training set.
+    • pNum is used to find the class-likelihood for every word and pDenom is used to  normalize the class-likelihoods.
+    • We find such intermediates so that we can the apply the Bayes Theorem on any given input poem and find the posterior probablity inorder to predict the class. 
+    • The last part is looping through the test data and incrementing the error variable if the maximum probabilty doesn’t match the class label.
+    • Executed on Google Colab.
